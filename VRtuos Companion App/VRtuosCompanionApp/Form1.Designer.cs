@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.OutputCombo = new System.Windows.Forms.ComboBox();
             this.Button = new System.Windows.Forms.Button();
@@ -42,6 +43,12 @@
             this.InputCombo = new System.Windows.Forms.ComboBox();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.UsernameButton = new System.Windows.Forms.Button();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.UsrErrLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -197,13 +204,98 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Make sure VRtuos is running and your Quest\r\nis connected to the same network.";
             // 
+            // UsernameButton
+            // 
+            this.UsernameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.UsernameButton.Enabled = false;
+            this.UsernameButton.FlatAppearance.BorderSize = 0;
+            this.UsernameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UsernameButton.Font = new System.Drawing.Font("Arial", 14F);
+            this.UsernameButton.Location = new System.Drawing.Point(233, 410);
+            this.UsernameButton.Name = "UsernameButton";
+            this.UsernameButton.Size = new System.Drawing.Size(172, 30);
+            this.UsernameButton.TabIndex = 16;
+            this.UsernameButton.Text = "Update username";
+            this.toolTip1.SetToolTip(this.UsernameButton, "Length: 2 - 20\r\nAllowed characters: A-z 0-9 _-*");
+            this.UsernameButton.UseVisualStyleBackColor = false;
+            this.UsernameButton.Visible = false;
+            this.UsernameButton.Click += new System.EventHandler(this.UsernameButton_Click);
+            // 
+            // UsernameTextBox
+            // 
+            this.UsernameTextBox.Enabled = false;
+            this.UsernameTextBox.Font = new System.Drawing.Font("Arial", 14F);
+            this.UsernameTextBox.Location = new System.Drawing.Point(56, 375);
+            this.UsernameTextBox.MaxLength = 15;
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(349, 29);
+            this.UsernameTextBox.TabIndex = 20;
+            this.UsernameTextBox.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Enabled = false;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Arial", 14F);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(53, 350);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 22);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Username:";
+            this.label7.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 150;
+            this.toolTip1.AutoPopDelay = 99999;
+            this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.toolTip1.ForeColor = System.Drawing.Color.White;
+            this.toolTip1.InitialDelay = 150;
+            this.toolTip1.ReshowDelay = 30;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // UsrErrLabel
+            // 
+            this.UsrErrLabel.AutoSize = true;
+            this.UsrErrLabel.BackColor = System.Drawing.Color.Transparent;
+            this.UsrErrLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UsrErrLabel.Font = new System.Drawing.Font("Arial", 14F);
+            this.UsrErrLabel.ForeColor = System.Drawing.Color.White;
+            this.UsrErrLabel.Location = new System.Drawing.Point(52, 414);
+            this.UsrErrLabel.Name = "UsrErrLabel";
+            this.UsrErrLabel.Size = new System.Drawing.Size(0, 22);
+            this.UsrErrLabel.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.label8.ForeColor = System.Drawing.Color.LightGray;
+            this.label8.Location = new System.Drawing.Point(54, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(400, 48);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "This app let\'s you connect your Quest and your MIDI piano together.\r\nReliability " +
+    "is heavily dependent on your connection.\r\nThe \"Learn\" and \"Scored\" modes work be" +
+    "st on fast 5G networks.";
+            // 
             // Form1
             // 
             this.AcceptButton = this.Button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(914, 442);
+            this.ClientSize = new System.Drawing.Size(914, 407);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.UsrErrLabel);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.UsernameButton);
+            this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
@@ -217,6 +309,7 @@
             this.Controls.Add(this.IPTextbox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -243,6 +336,12 @@
         private System.Windows.Forms.ComboBox InputCombo;
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button UsernameButton;
+        private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label UsrErrLabel;
+        public System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label8;
     }
 }
 

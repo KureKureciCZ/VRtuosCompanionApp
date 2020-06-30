@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using Melanchall.DryWetMidi.Core;
@@ -322,6 +323,27 @@ namespace VRtuosCompanionApp
                     break;
             }
         }
+
+        private void UsernameButton_Click(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^[a-zA-Z0-9_\-*]{2,20}$");
+            Match match = regex.Match(UsernameTextBox.Text);
+
+            if (match.Success)
+            {
+                if (connectionStatus == ConnectionStatus.Connected)
+                {
+                    SendData(Encoding.ASCII.GetBytes(UsernameTextBox.Text), (int)code.settingsData);
+                    UsrErrLabel.Text = "";
+                }
+                else
+                {
+                    UsrErrLabel.Text = "Connection error";
+                }
+            }
+            else
+                UsrErrLabel.Text = "Invalid username";
+        }
     }
 
     enum ConnectionStatus
@@ -334,6 +356,7 @@ namespace VRtuosCompanionApp
     enum code
     {
         midi = 10,
-        connectionData = 20
+        connectionData = 20,
+        settingsData = 30
     }
 }
